@@ -1,4 +1,10 @@
 .App {
     display: flex;
+    flex-direction: column;
+    background: linear-gradient(to left, #232526, #414345);
+}
+
+.Cards {
+    display: flex;
     flex-wrap: wrap;
 }

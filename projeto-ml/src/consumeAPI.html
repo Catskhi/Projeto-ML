@@ -8,10 +8,13 @@
 </head>
 <body>
     <script>
-        fetch("http://127.0.0.1:5000")
-        .then( (response) => response.json())
-        .then( (data) => console.log(data))
-        .catch( (error) => console.log(error))
+        function consumeAPI(url) {
+            return fetch(url).then(response => response.json())
+        }
+        consumeAPI('http://127.0.0.1:5000/teste').then(function(data) {
+           let dados = data
+           console.log(data)
+        })
     </script>
 </body>
 </html>
