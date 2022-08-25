@@ -2,11 +2,13 @@ import time
 from flask import Flask, make_response, jsonify
 
 app = Flask('__name__')
+# Faz o app reconhecer UTF-8
+app.config['JSON_AS_ASCII'] = False
 
 data = {
     'nome': 'Carro1',
     'preço': 40000,
-    'ano': 2005
+    'ano': 2005,
 }
 
 @app.route('/')

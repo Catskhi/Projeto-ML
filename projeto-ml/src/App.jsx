@@ -1,10 +1,14 @@
 import './App.css'
 import React from 'react'
 
-import Fundamentos from './Fundamentos'
+import TesteConsomeAPI from './components/TesteConsomeAPI'
+import Boots from './components/Boots'
+import Home from './pages/Home'
 
 export default (props) => (
     <div className="App">
-        <Fundamentos/>
+        <>
+            <Home></Home>
+        </>
     </div>
 )
