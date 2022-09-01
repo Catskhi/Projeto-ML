@@ -1,0 +1,7 @@
+.PainelInicio {
+    background-image: linear-gradient(to right, rgb(115, 26, 187), rgb(141, 228, 255));
+    display: flex;
+    flex: 1;
+    padding: 50px 30px 50px 30px;
+    border-radius: 10px;
+}

@@ -1,10 +1,10 @@
 import React from "react";
 import './css/Home.css'
 
+import PainelInicio from "./components/PainelInicio/PainelInicio";
+
 export default (props) => {
     return (
-        <div className="painelInicio">
-            oi
-        </div>
+        <PainelInicio></PainelInicio>
     )
 }

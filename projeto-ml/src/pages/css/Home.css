@@ -1,10 +1,4 @@
 body {
     background-color: #303030;
-}
-
-.painelInicio {
-    background-image: linear-gradient(to right, rgb(141, 228, 255) , rgb(115, 26, 187));
-    display: flex;
-    flex: 1;
-    width: 100vh;
+    margin: 0px;
 }
