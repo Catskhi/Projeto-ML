@@ -5,6 +5,8 @@ import PainelInicio from "./components/PainelInicio/PainelInicio";
 
 export default (props) => {
     return (
-        <PainelInicio></PainelInicio>
+        <>
+            <PainelInicio></PainelInicio>
+        </>
     )
 }

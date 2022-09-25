@@ -1,0 +1,16 @@
+.eyeButton {
+    width: 25px;
+    height: 30px;
+    margin: auto;
+}
+
+.submitButton {
+    padding: 15px 30px 15px 30px;
+    font-size: 15pt;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700px;
+    background-color: #ffffff;
+    border: 0;
+    border-radius: 13px;
+    margin: 15px auto 30px auto;
+}
