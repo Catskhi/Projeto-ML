@@ -1,2 +1,3 @@
 # Debug mode:
-# flask --app app --debug run
+source venv/bin/activate
+flask --app app --debug run

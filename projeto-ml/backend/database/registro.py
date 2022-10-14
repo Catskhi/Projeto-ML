@@ -10,7 +10,9 @@ def registraUsuario(user, senha, nome, idade, data_de_nascimento, criado_em, pat
     query = "INSERT INTO usuário (user, senha, nome, idade, data_de_nascimento, criado_em) VALUES (?, ?, ?, ?, ?, ?)"
     cursor.execute(query, (user, senha, nome, idade, data_de_nascimento, criado_em))
     db.commit()
-
+"""
+    vai retornar true se o usuário já existe
+"""
 def verificaUsuarioRepetido(usuario, path):
     db = connect_to_database(path)
     cursor = db.cursor()

@@ -1,4 +1,4 @@
-.titulo {
+.tituloForm {
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
     text-align: center;
@@ -12,6 +12,17 @@
     color:#FFFFFF;
     font-size: 20pt;
     margin: 10px auto 5px auto;
+}
+
+.mensagemDeLink {
+    font-family: 'Nunito', sans-serif;
+    color:#FFFFFF;
+    font-size: 13pt;
+}
+
+.linkLoginRegistro {
+    color: rgb(22, 143, 223);
+    text-decoration: none;
 }
 
 .invalidText {

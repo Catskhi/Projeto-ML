@@ -1,0 +1,38 @@
+.barraLateral {
+    background-color: #120f20;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.barraLateral a {
+    padding: 10px;
+    font-size: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: 'Nunito', sans-serif;
+    color: #F0F8FF;
+}
+
+.barraLateral a:hover, .linkIcon:hover svg{
+    color: #b6bec5;
+}
+
+.barraLateral .closeButton {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    margin-left: 50px;
+    font-size: 37px;
+}
+

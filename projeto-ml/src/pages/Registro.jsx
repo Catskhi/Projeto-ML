@@ -10,6 +10,9 @@ import BoxItem from "./components/boxComponents/BoxItem";
 import BoxText from "./components/boxComponents/BoxText";
 import SubmitButton from "./components/buttons/SubmitButton";
 import MensagemErro from "./components/boxComponents/MensagemErro";
+import FormContainer from "./components/formContainer/FormContainer";
+import FormTitulo from "./components/Textos/formContainer/FormTitulo";
+import FormQuestionLink from "./components/formContainer/FormQuestionLink";
 
 export default function Registro(props) {
     const [inputs, setInputs] = useState({});
@@ -72,10 +75,10 @@ export default function Registro(props) {
     return (
         <>
         <form onSubmit={handleSubmit}>
-        <div className="boxContainer flex-wrap column">
-            <div className="boxItem">
-                <h1 className="titulo">Registro</h1>
-            </div>
+        <FormContainer>
+            <BoxItem>
+                <FormTitulo text='Registro' />
+            </BoxItem>
             <BoxItem>
                 <MensagemErro erros={erros}></MensagemErro>
             </BoxItem>
@@ -113,9 +116,13 @@ export default function Registro(props) {
                 type={'date'} value={inputs.data} onChange={handleChange}/>
            </BoxItem>
            <BoxItem>
+                <FormQuestionLink text={'Já tem uma conta? '}
+                link={'/login'} linkName={'Entrar'} />
+           </BoxItem>
+           <BoxItem>
                 <SubmitButton action={'http://127.0.0.1:5000/register'} text={'Registrar'}></SubmitButton>
            </BoxItem>
-        </div>
+        </FormContainer>
         </form>
         </>
     )
