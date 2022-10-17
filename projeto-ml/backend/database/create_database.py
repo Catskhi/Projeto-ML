@@ -34,7 +34,7 @@ def create_database():
 	CREATE TABLE "sono_usuario" (
 	"id"	INTEGER NOT NULL UNIQUE,
 	"usuário"	INTEGER NOT NULL,
-	"dia"	INTEGER NOT NULL UNIQUE,
+	"data"	TEXT NOT NULL UNIQUE,
 	"suficiente"	TEXT NOT NULL,
 	"horas"	INTEGER NOT NULL,
 	"celular_por_perto"	TEXT NOT NULL,

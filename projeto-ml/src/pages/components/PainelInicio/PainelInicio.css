@@ -1,6 +1,6 @@
 .PainelInicio {
     background-image: linear-gradient(to right, rgb(115, 26, 187), rgb(141, 228, 255));
-    padding: 50px 30px 50px 30px;
+    padding: 50px 30px 50px 10px;
     display: flex;
 }
 
@@ -12,8 +12,6 @@
     border: 0;
     border-radius: 10px;
     margin-right: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .homeButton:hover {

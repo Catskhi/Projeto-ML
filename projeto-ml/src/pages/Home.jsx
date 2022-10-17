@@ -9,13 +9,14 @@ import Grafico from "./components/home/Grafico";
 import Separador from "./components/home/Separador/Separador";
 import ItemDoSeparador from "./components/home/Separador/ItemDoSeparador";
 import Navegador from "./components/home/BarraLateral/BarraLateral";
+import GraficosDoDia from "./components/home/GraficosDoDia/GraficosDoDia";
 
 export default (props) => {
 
     const navigate = useNavigate()
 
     if (sessionStorage.getItem('username')) {
-        console.log('No login!')
+        console.log('login!')
     } else {
         return (
             <Navigate to={'/login'}/>
@@ -23,12 +24,13 @@ export default (props) => {
     }
 
     function abreBarraLateral() {
-        document.getElementById("barraLateral").style.width = "250px";
+        document.getElementById("barraLateral").classList.replace('hidden', '')
         //document.getElementById("main").style.marginLeft = "250px";
+        console.log('aqui')
     }
 
     function fechaBarraLateral() {
-        document.getElementById("barraLateral").style.width = "0";
+        document.getElementById("barraLateral").classList.toggle('hidden')
         //document.getElementById("main").style.marginLeft= "0";
     }
     
@@ -41,6 +43,7 @@ export default (props) => {
                 </ItemDoSeparador>
                 <ItemDoSeparador className='grow2'>
                     <PainelInicio/>
+                    <GraficosDoDia/>
                 </ItemDoSeparador>
             </Separador>
         </>

@@ -1,5 +1,5 @@
 import sqlite3
-
+from database.queries import executeRegister
 def connect_to_database(path):
     db = sqlite3.connect(path)
     return db
@@ -22,5 +22,9 @@ def verificaUsuarioRepetido(usuario, path):
         return True
     else:
         return False
+
+def registraSono(usuario, date, suficiente, horas, celularPorPerto, usouCelular, cansado, cafe, path):
+    query = "INSERT INTO sono_usuario (usuário, data, suficiente, horas, celular_por_perto, usou_celular, cansaço, café_da_manha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    executeRegister(query, (usuario, date, suficiente, horas, celularPorPerto, usouCelular, cansado, cafe), path)
 
 # verificaUsuarioRepetido('HenrikNailo', './database.db')

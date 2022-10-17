@@ -1,5 +1,7 @@
 import time
-from database.registro import verificaUsuarioRepetido, registraUsuario
+import database.queries
+from responseReturn import responseReturn
+from database.registro import verificaUsuarioRepetido, registraUsuario, registraSono
 from database.login import verificaSenha
 from datetime import datetime
 from urllib import request
@@ -33,9 +35,7 @@ def get_teste():
         'preço': 40000,
         'ano': 2005,
     }
-    response = jsonify(data)
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+    return responseReturn(data)
 
 @app.route('/registro', methods=['GET', 'POST'])
 def registro():
@@ -64,9 +64,7 @@ def registro():
         data = {
             'ja_existe': jaExiste
         }
-    response = jsonify(data)
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+    return responseReturn(data)
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -86,21 +84,34 @@ def login():
             data = {
                 'login': False
             }
-    response = jsonify(data)
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+    return responseReturn(data)
 
-
-@app.route('/session')
-def dash():
-    if 'username' in session:
-        data = {
-            'username': session['username']
-        }
+@app.route('/get-user-sleep-data', methods=['GET'])
+def get_user_sleep_data_Today():
+    username = request.args.get('username')
+    if username:
+        today = datetime.today().strftime('%Y-%m-%d')
+        query = "SELECT data FROM sono_usuario WHERE usuário = '" + username + "' and data = '" + today + "'"
+        result = database.queries.executeQuery(query, DATABASE_PATH)
+        if len(result) >= 1:
+            return responseReturn(result[0])
+        else:
+            return {
+                'error': 'Sem registros na data de hoje!'
+            }
     else:
-        data = {
-            'username': None
+        return {
+            'erro': 'precisa do parâmetro username!'
         }
-    response = jsonify(data)
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+
+@app.route('/set-user-sleep-data', methods=['GET', 'POST'])
+def set_user_sleep_data():
+    username = request.args.get('username')
+    date = request.args.get('date')
+    suficiente = request.args.get('suficiente')
+    horas = request.args.get('horas')
+    celularPorPerto = request.args.get('celularPorPerto')
+    usouCelular = request.args.get('usouCelular')
+    cansado = request.args.get('cansado')
+    cafe = request.args.get('cafe')
+    registraSono(username, date, suficiente, horas, celularPorPerto, usouCelular, cansado, cafe, DATABASE_PATH)

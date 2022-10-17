@@ -1,0 +1,16 @@
+.titulo1 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: aliceblue;
+    padding: 15px;
+}
+
+.columnFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flexButton {
+    width: 200px;
+}

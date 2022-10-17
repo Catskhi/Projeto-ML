@@ -10,7 +10,7 @@ import FormTitulo from "./components/Textos/formContainer/FormTitulo";
 import BoxText from "./components/boxComponents/BoxText";
 import SubmitButton from "./components/buttons/SubmitButton";
 import FormQuestionLink from "./components/formContainer/FormQuestionLink";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Login(props) {
     const [inputs, setInputs] = useState({});
@@ -18,6 +18,12 @@ export default function Login(props) {
     const [senhaValida, setSenhaValida] = useState(true) 
     const [erros, setErros] = useState([])
     const navigate = useNavigate()
+
+    if (sessionStorage.getItem('username')) {
+        return (
+            <Navigate to={'/home'}/>
+        )
+    }
 
     const handleChange = (event) => {
         const name = event.target.name;

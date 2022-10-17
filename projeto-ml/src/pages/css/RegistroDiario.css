@@ -1,0 +1,20 @@
+.formRegistroDiario {
+    text-align: center;
+}
+
+.selectMenu {
+    margin: 10px;
+}
+
+.inputNumeroDiario {
+    padding: 10px;
+    width: 180px;
+    height: 35px;
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.botaoRegistroDiario {
+    margin-top: 30px;
+}

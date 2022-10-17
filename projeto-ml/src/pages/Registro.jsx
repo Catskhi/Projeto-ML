@@ -13,8 +13,10 @@ import MensagemErro from "./components/boxComponents/MensagemErro";
 import FormContainer from "./components/formContainer/FormContainer";
 import FormTitulo from "./components/Textos/formContainer/FormTitulo";
 import FormQuestionLink from "./components/formContainer/FormQuestionLink";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Registro(props) {
+    const navigate = useNavigate()
     const [inputs, setInputs] = useState({});
     const [usuarioValido, setUsuarioValido] = useState(true);
     const [senhaValida, setSenhaValida] = useState(true) 
@@ -70,6 +72,12 @@ export default function Registro(props) {
 
     function updateErros(erro) {
         setErros(old => [...old, erro])
+    }
+
+    if (sessionStorage.getItem('username')) {
+        return (
+            <Navigate to={'/home'}/>
+        )
     }
 
     return (
