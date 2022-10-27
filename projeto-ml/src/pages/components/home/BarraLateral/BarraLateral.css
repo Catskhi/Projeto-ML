@@ -1,0 +1,46 @@
+.barraLateral {
+    background-color: #13121d;
+    width: 250px;
+    height: 100vh;
+    padding: 0;
+    transition: 0.3s;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 15px 15px 0px;
+}
+
+.barraLateral a {
+    margin-left: 15px;
+}
+
+.barraLateral a, path {
+    padding: 10px;
+    font-size: 30px;
+    text-decoration: none;
+    transition: 0.5s;
+    font-family: 'Nunito', sans-serif;
+    color: #F0F8FF;
+    fill: #F0F8FF;
+}
+
+/* CSS abaixo é utilziado para mudar a cor do ícone do link */
+.barraLateral a:hover, .barraLateral a:hover path {
+    color: #b6bec5;
+    fill: #b6bec5;
+    transition: 0.5s;
+}
+
+.barraLateral .closeButton {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.hidden {
+    transform: translateX(-250px);
+}
+
+.itemBarra {
+    margin-right: 25px;
+}
+
