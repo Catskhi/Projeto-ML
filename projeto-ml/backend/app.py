@@ -6,7 +6,7 @@ from database.login import verificaSenha
 from datetime import datetime
 from urllib import request
 from flask import Flask, make_response, jsonify, session, request
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_session import Session
 
 app = Flask(__name__)
@@ -14,6 +14,7 @@ app.config["SESSION_TYPE"] = 'filesystem'
 app.config.from_object(__name__)
 Session(app)
 CORS(app, supports_credentials=True)
+app.config['CORS_HEADERS'] = 'Content-Type'
 app.secret_key = '123456'
 # Faz o app reconhecer UTF-8
 app.config['JSON_AS_ASCII'] = False
@@ -91,7 +92,7 @@ def get_user_sleep_data_Today():
     username = request.args.get('username')
     if username:
         today = datetime.today().strftime('%Y-%m-%d')
-        query = "SELECT data FROM sono_usuario WHERE usuário = '" + username + "' and data = '" + today + "'"
+        query = "SELECT * FROM sono_usuario WHERE usuário = '" + username + "' and data = '" + today + "'"
         result = database.queries.executeQuery(query, DATABASE_PATH)
         if len(result) >= 1:
             return responseReturn(result[0])
@@ -115,3 +116,21 @@ def set_user_sleep_data():
     cansado = request.args.get('cansado')
     cafe = request.args.get('cafe')
     registraSono(username, date, suficiente, horas, celularPorPerto, usouCelular, cansado, cafe, DATABASE_PATH)
+    data = {
+        'username': username,
+        'data': date,
+        'suficiente': suficiente,
+        'horas': horas,
+        'celular por perto': celularPorPerto,
+        'usou celular': usouCelular,
+        'cansaço': cansado,
+        'café': cafe
+    } 
+    return responseReturn(data)
+
+
+@app.route('/get-user-last-days/<string:user>/<int:days>', methods=['GET'])
+def get_user_last_days(user, days):
+    query = "SELECT * FROM sono_usuario WHERE usuário = '" + user + "' ORDER BY data DESC LIMIT " + str(days)
+    result = database.queries.executeQuery(query, DATABASE_PATH)
+    return result

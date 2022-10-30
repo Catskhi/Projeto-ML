@@ -23,9 +23,9 @@ export default function RegistroDiario(props) {
     let todayDate = new Date()
     let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate()
     
-    const handleSubmit = (event) => {
-        alert('submitado!')
-        fetchData('http://127.0.0.1:5000/set-user-sleep-data?'+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        let url = 'http://127.0.0.1:5000/set-user-sleep-data?'+
         'username='+sessionStorage.getItem('username')+
         '&date='+today+
         '&suficiente='+suficiente+
@@ -33,17 +33,26 @@ export default function RegistroDiario(props) {
         '&celularPorPerto='+celularPorPerto+
         '&usouCelular='+usouCelular+
         '&cansado='+cansado+
-        '&cafe='+cafe)
+        '&cafe='+cafe
+        await Registra(url)
     }
 
-    async function fetchData(url, redirect) {
+    async function Registra(url) {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data)
+            navigate('/home')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function fetchData(url) {
+        const headers = new Headers();
         const response = await fetch(url);
         const data = await response.json()
-        if (redirect == true) {
-            navigate('home')
-        } else {
-            return data
-        }
+        return data
     }
 
     function handleChange(event) {
@@ -64,8 +73,8 @@ export default function RegistroDiario(props) {
 
     useEffect(() => {
         async function verificaSeDiaFoiRegistrado() {
-            const result = await fetchData("http://127.0.0.1:5000/get-user-sleep-data?username="+sessionStorage.getItem('username'), false)
-            if (result == today) {
+            const result = await fetchData("http://127.0.0.1:5000/get-user-sleep-data?username="+sessionStorage.getItem('username'))
+            if (result[2] == today) {
                 setJaRegistrou(true)
             } else {
                 setJaRegistrou(false)

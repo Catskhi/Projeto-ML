@@ -26,5 +26,8 @@ def verificaUsuarioRepetido(usuario, path):
 def registraSono(usuario, date, suficiente, horas, celularPorPerto, usouCelular, cansado, cafe, path):
     query = "INSERT INTO sono_usuario (usuário, data, suficiente, horas, celular_por_perto, usou_celular, cansaço, café_da_manha) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
     executeRegister(query, (usuario, date, suficiente, horas, celularPorPerto, usouCelular, cansado, cafe), path)
+    return {
+        'Status': 'Query executada.'
+    }
 
 # verificaUsuarioRepetido('HenrikNailo', './database.db')

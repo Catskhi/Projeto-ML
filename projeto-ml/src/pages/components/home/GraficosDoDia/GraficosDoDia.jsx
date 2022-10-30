@@ -12,6 +12,7 @@ export default function GraficosDoDia(props) {
     let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate()
 
     const [jaVerificou, setJaVerificou] = useState(null)
+    const [userLastDaysData, setUserLastDaysData] = useState([])
 
     function redireciona() {
         navigate('/registro-diario')
@@ -24,21 +25,31 @@ export default function GraficosDoDia(props) {
     }
     useEffect(() => {
         async function verificaRegistroDiario() {
-            const response = await fetchData('http://127.0.0.1:5000/get-user-sleep-data?username=HenrikNailo')
-            if (response == today) {
+            const response = await fetchData('http://127.0.0.1:5000/get-user-sleep-data?username='+sessionStorage.getItem('username'))
+            if (response[2] == today) {
                 setJaVerificou(true)
             } else {
                 setJaVerificou(false)
             }
         }
         verificaRegistroDiario()
+        async function getUserLastDaysData() {
+            fetch('http://localhost:5000/get-user-last-days/HenrikNailo/5')
+            .then(response => response.json())
+            .then(data => setUserLastDaysData(data))
+            .then(console.log(userLastDaysData));
+        }
+        getUserLastDaysData()
     }, []);
-
-    console.log(jaVerificou)
 
     if (jaVerificou === true) {
         return (
-            <h1 className="titulo1">Estes são os seus dados dos últimos dias:</h1>
+            <>
+                <h1 className="titulo1">Estes são os seus dados dos últimos dias:</h1>
+                <h1 className="titulo1">{userLastDaysData[0]}</h1>
+
+                
+            </>
         )
     } else if (jaVerificou === false) {
         return(

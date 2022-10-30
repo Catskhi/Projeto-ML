@@ -52,7 +52,6 @@ export default function Registro(props) {
     }
 
     async function fetchData(url) {
-        const headers = new Headers();
         const response = await fetch(url);
         const data = await response.json();
     
@@ -62,6 +61,7 @@ export default function Registro(props) {
             updateErros('Esse nome de usuário já existe!')
         } else {
             console.log(data)
+            navigate('/login')
         }
     }
 
@@ -77,6 +77,12 @@ export default function Registro(props) {
     if (sessionStorage.getItem('username')) {
         return (
             <Navigate to={'/home'}/>
+        )
+    }
+
+    function navigateToHome() {
+        return (
+            <Navigate to={'home'}/>
         )
     }
 

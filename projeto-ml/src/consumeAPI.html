@@ -7,11 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Teste</h1>
     <script>
-        function consumeAPI(url) {
+        async function consumeAPI(url) {
             return fetch(url).then(response => response.json())
         }
-        consumeAPI('http://127.0.0.1:5000/teste').then(function(data) {
+        consumeAPI('http://127.0.0.1:5000/set-user-sleep-data?username=HenrikNailo&date=2022-10-29&suficiente=Yes&horas=1&celularPorPerto=Yes&usouCelular=Yes&cansado=1&cafe=Yes')
+        .then(function(data) {
            let dados = data
            console.log(data)
         })
