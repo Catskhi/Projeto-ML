@@ -98,7 +98,8 @@ def get_user_sleep_data_Today():
             return responseReturn(result[0])
         else:
             return {
-                'error': 'Sem registros na data de hoje!'
+                'error': 'Sem registros na data de hoje!',
+                'hoje': today
             }
     else:
         return {

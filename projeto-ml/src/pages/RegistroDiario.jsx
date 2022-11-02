@@ -21,7 +21,7 @@ export default function RegistroDiario(props) {
     const [cafe, setCafe] = useState('Yes')
 
     let todayDate = new Date()
-    let today = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate()
+    let today = todayDate.getFullYear() + '-' + ('0' + (todayDate.getMonth() + 1)).slice(-2) + '-' + ('0' + todayDate.getDate()).slice(-2)
     
     const handleSubmit = async (event) => {
         event.preventDefault()

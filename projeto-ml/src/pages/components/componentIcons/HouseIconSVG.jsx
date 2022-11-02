@@ -5,7 +5,7 @@ export default function HouseIconSVG(props) {
         <svg className={"flex1 " + props.className}
         width="30"
         height="30"
-        viewBox="0 0 24 24"
+        viewBox="0 0 24 22"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         >
