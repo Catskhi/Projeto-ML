@@ -45,7 +45,7 @@ export default function GraficosDoDia(props) {
         }
         getUserRegisterSize()
         async function getUserLastDaysData() {
-            const response = await fetch('http://localhost:5000/get-user-last-days/'+sessionStorage.getItem('username')+'/7')
+            const response = await fetch('http://localhost:5000/get-user-last-days/'+sessionStorage.getItem('username')+'/5')
             const newData = await response.json()
             //console.log(newData.map((element) => console.log(element)))
             for (let i = 0; i < newData.length; i++) {
