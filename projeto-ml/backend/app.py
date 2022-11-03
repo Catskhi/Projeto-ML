@@ -135,3 +135,9 @@ def get_user_last_days(user, days):
     query = "SELECT * FROM sono_usuario WHERE usuário = '" + user + "' ORDER BY data DESC LIMIT " + str(days)
     result = database.queries.executeQuery(query, DATABASE_PATH)
     return result
+
+@app.route('/get-user-register-size/<string:user>', methods=['GET'])
+def get_user_register_size(user):
+    query = "SELECT * FROM sono_usuario WHERE usuário = '" + user + "'"
+    result = database.queries.executeQuery(query, DATABASE_PATH)
+    return result

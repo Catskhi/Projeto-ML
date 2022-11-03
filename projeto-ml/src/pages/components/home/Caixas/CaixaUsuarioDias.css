@@ -4,13 +4,31 @@
     background-color: #2f2c41;
     color: aliceblue;
     border-radius: 15px;
-    width: 50%;
+    width: 35%;
     margin: auto;
     padding-top: 10px;
     padding-bottom: 10px;
+    transition: 0.3s;
+}
+
+.linhaCaixa {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.tituloData {
+    margin-right: 15px;
 }
 
 p {
     font-size: 18px;
     font-weight: 600;
+}
+
+.textoVerde {
+    color: rgb(70, 230, 70);
+}
+
+.textoVermelho {
+    color: rgb(253, 47, 47);
 }
