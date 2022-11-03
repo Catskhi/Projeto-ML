@@ -4,7 +4,6 @@ import CommonButton from "../../buttons/CommonButton";
 import CaixaUsuarioDias from "../Caixas/CaixaUsuarioDias";
 import CustomLineChart from "./Graficos/CustomLineChart";
 import './GraficosDoDia.css'
-import RegisterSelectorOptions from "./RegisterSelectorOptions";
 
 export default function GraficosDoDia(props) {
     const navigate = useNavigate()
