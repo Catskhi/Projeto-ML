@@ -141,3 +141,9 @@ def get_user_register_size(user):
     query = "SELECT * FROM sono_usuario WHERE usuário = '" + user + "'"
     result = database.queries.executeQuery(query, DATABASE_PATH)
     return result
+
+@app.route('/get-all-general-registers', methods=['GET'])
+def get_all_general_registers():
+    query = "SELECT * FROM dados_de_sono ORDER BY suficiente DESC"
+    result = database.queries.executeQuery(query, DATABASE_PATH)
+    return result

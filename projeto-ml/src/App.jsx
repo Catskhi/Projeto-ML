@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Registro from './pages/Registro';
 import Login from './pages/Login';
 import RegistroDiario from './pages/RegistroDiario';
+import GraficosGerais from './pages/GraficosGerais';
 
 export default (props) => (
     <div className="App">
@@ -18,6 +19,7 @@ export default (props) => (
                     <Route path={'/login'} element={<Login/>}/>
                     <Route path={'/registro'} element={<Registro/>}/>
                     <Route path={'/registro-diario'} element={<RegistroDiario/>}/>
+                    <Route path={'/graficos-gerais'} element={<GraficosGerais/>}/>
                 </Routes>
             </BrowserRouter>
         </>

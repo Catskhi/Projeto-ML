@@ -7,7 +7,7 @@ import SelectMenuRegistroDiario from "./components/Textos/formContainer/Registro
 
 import './css/RegistroDiario.css'
 import './components/css/boxes.css'
-import './components/home/GraficosDoDia/GraficosDoDia.css'
+import './components/home/Graficos/GraficosDoDia/GraficosDoDia.css'
 import SubmitButton from "./components/buttons/SubmitButton";
 
 export default function RegistroDiario(props) {

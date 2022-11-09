@@ -9,11 +9,9 @@ import Grafico from "./components/home/Grafico";
 import Separador from "./components/home/Separador/Separador";
 import ItemDoSeparador from "./components/home/Separador/ItemDoSeparador";
 import Navegador from "./components/home/BarraLateral/BarraLateral";
-import GraficosDoDia from "./components/home/GraficosDoDia/GraficosDoDia";
+import GraficosDoDia from "./components/home/Graficos/GraficosDoDia/GraficosDoDia";
 
-export default (props) => {
-
-    const navigate = useNavigate()
+export default function Home (props) {
 
     if (sessionStorage.getItem('username')) {
         console.log('login!')
@@ -23,16 +21,6 @@ export default (props) => {
         )
     }
 
-    function abreBarraLateral() {
-        document.getElementById("barraLateral").classList.replace('hidden', '')
-        //document.getElementById("main").style.marginLeft = "250px";
-        console.log('aqui')
-    }
-
-    function fechaBarraLateral() {
-        document.getElementById("barraLateral").classList.toggle('hidden')
-        //document.getElementById("main").style.marginLeft= "0";
-    }
     
     return (
         <>
