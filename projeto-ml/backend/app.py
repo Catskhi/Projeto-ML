@@ -7,12 +7,10 @@ from datetime import datetime
 from urllib import request
 from flask import Flask, make_response, jsonify, session, request
 from flask_cors import CORS, cross_origin
-from flask_session import Session
 
 app = Flask(__name__)
 app.config["SESSION_TYPE"] = 'filesystem'
 app.config.from_object(__name__)
-Session(app)
 CORS(app, supports_credentials=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.secret_key = '123456'
