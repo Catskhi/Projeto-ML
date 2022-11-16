@@ -19,7 +19,7 @@ export default (props) => {
                 {props.children}
                 <a href="javascript:void(0)" className="closeButton" onClick={fechaBarraLateral}>x</a>
                 <a href="/home" className="itemBarra"><HouseIconSVG className="linkIcon"/> Início</a>
-                <a href="/graficos-gerais" className="itemBarra"><GraphIconSVG className="linkIcon"/> Gráficos</a>
+                <a href="/dados" className="itemBarra"><GraphIconSVG className="linkIcon"/> Dados</a>
             </div>
         </>
     )

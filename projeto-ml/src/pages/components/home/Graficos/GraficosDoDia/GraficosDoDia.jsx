@@ -123,7 +123,7 @@ export default function GraficosDoDia(props) {
         
         return (
             <>
-                <h1 className="titulo1">Estes são os seus dados dos últimos dias</h1>
+                <h1 className="titulo1">Estes são os seus dados dos últimos dias:</h1>
                 <h1 className="titulo1">Você dormiu o suficiente nos últimos dias?</h1>
                 <CaixaUsuarioDias data={suficienteData} dataKey={'suficiente'}
                 reverseColors={false}/>

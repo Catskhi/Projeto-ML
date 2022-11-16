@@ -19,7 +19,7 @@ export default (props) => (
                     <Route path={'/login'} element={<Login/>}/>
                     <Route path={'/registro'} element={<Registro/>}/>
                     <Route path={'/registro-diario'} element={<RegistroDiario/>}/>
-                    <Route path={'/graficos-gerais'} element={<GraficosGerais/>}/>
+                    <Route path={'/dados'} element={<GraficosGerais/>}/>
                 </Routes>
             </BrowserRouter>
         </>
